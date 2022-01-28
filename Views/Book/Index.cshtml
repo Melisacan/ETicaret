@@ -1,0 +1,63 @@
+﻿@model IEnumerable<eticaret.DbModels.Book>
+@{ 
+    var categoryContext = new eticaret.DbConfigurations.EfCategoryDal();
+    var categories = categoryContext.GetList();
+}
+@{
+    ViewBag.Title = "Kitaplar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            @foreach (var item in categories)
+            {
+                <div class="row">
+                    <div class="span12">
+                        <h4 class="title">
+                            <span class="pull-left"><span class="text"><span class="line">Kategori adı : @item.Name</span></span></span>
+                            <span class="pull-right">
+                                <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+                            </span>
+                        </h4>
+                        <div id="myCarousel" class="myCarousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="active item">
+                                    <ul class="thumbnails">
+
+                                        @foreach (var inItem in Model)
+                                        {
+                                            if (item.Id == inItem.CategoryId)
+                                            {
+                                                <li class="span3" >
+                                                    <div class="product-box">
+                                                        <span class="sale_tag"></span>
+                                                        <p><a href="../BookDetail/Index?ID=@inItem.Id"><img src="@inItem.ImagePath" alt="" height="300" width="200" /></a></p>
+                                                        <a href="product_detail.html" class="title">@inItem.Name</a><br />
+                                                        <a href="products.html" class="category">@inItem.Author</a>
+                                                        <p class="price">@inItem.Price.ToString("#.##") ₺</p>
+                                                        <p class="btn btn-primary"><a href="../BookDetail/Index?ID=@inItem.Id">Sepete Ekle</a></p>
+                                                    </div>
+                                                </li>
+                                            }
+
+
+                                        }
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+</section>
+
+
+

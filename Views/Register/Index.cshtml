@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "Kayıt Ol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wrapper" class="container" style="width:1150px;">
+    
+    <section class="header_text sub" >
+        <img class="pageBanner" src="~/Content/images/kapak.jpg" style="width: 900px; height: 500px; " alt="New products"  >
+        <h4><span>Giriş Yap Veya Kaydol</span></h4>
+    </section>
+    <section class="main-content">
+        <div class="row">
+            <div class="span5">
+                <h4 class="title"><span class="text"><strong>Giriş</strong> Formu</span></h4>
+                <form action="#" id="login_form" method="post">
+                    <input type="hidden" name="next" value="/">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label">Email Adres:</label>
+                            <div class="controls">
+                                <input type="email" name="Mail" id="MailLogin" placeholder="Mail adresinizi giriniz" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Parola:</label>
+                            <div class="controls">
+                                <input type="password" name="Password" id="PasswordLogin" placeholder="Parolanızı Giriniz" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                        <div class="actions"><button onclick="LoginCustomer()" class="btn btn-inverse large" type="button">Giriş Yap</button></div>
+                            <hr>
+                            <p class="reset">Recover your <a tabindex="4" href="#" title="Kullanıcı adınızı veya şifrenizi kurtarın! ">Kullanıcı adı veya Şifre</a></p>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="span7"  style="width:400px;">
+                <h4 class="title"><span class="text"><strong>Kayıt</strong> Formu</span></h4>
+                <form action="#" method="post" id="register_form" class="form-stacked">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label">Ad:</label>
+                            <div class="controls">
+                                <input type="text" name="Name" id="Name" placeholder="Ad Giriniz" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Soyad:</label>
+                            <div class="controls">
+                                <input type="text" name="Surname" id="Surname" placeholder="Soyad Giriniz" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Telefon:</label>
+                            <div class="controls">
+                                <input type="text" name="PhoneNumber" id="PhoneNumber" placeholder="Telefon Numarası Giriniz" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Email Adres:</label>
+                            <div class="controls">
+                                <input type="email" name="Mail" id="Mail" placeholder="Mail adresinizi giriniz" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Parola:</label>
+                            <div class="controls">
+                                <input type="password" name="Password" id="Password" placeholder="Parolanızı Giriniz" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Adres:</label>
+                            <div class="controls">
+                                <textarea name="Address" id="Address" placeholder="Adresinizi Giriniz" class="input-xlarge"></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <p>Now that we know who you are. :) </p>
+                        </div>
+                        <hr>
+                        <div class="actions"><button onclick="RegisterCustomer()" class="btn btn-inverse large" type="button"> Kayıt Ol</button></div>
+                    </fieldset>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+ 
+</div>
+<script src="themes/js/common.js"></script>
+
+<script>
+			$(document).ready(function() {
+				$('#checkout').click(function (e) {
+					document.location.href = "checkout.html";
+				})
+            });
+
+    function RegisterCustomer() {
+
+        var formData = new FormData(document.getElementById("register_form"));
+        var formValid = document.getElementById("register_form").getElementsByTagName("input");
+
+        var message = "";
+        for (var i = 0; i < formValid.length; i++) {
+            if (formValid[i].value == "") {
+                message = formValid[i].textContent + 'Kayıt Formunda Boş Alanlar var!';
+            }
+            if (message) {
+                alert(message);
+                return false;
+            }
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "../Register/Index",
+            data: formData,
+            async: true,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data.state) {
+                     @*window.location.href = '@Url.Action("Index", "Home")'*@
+                    alert("Başarılı üyelik")
+                }
+                else {
+                    alert("Başarısız Üyelik", data.message);
+                    document.getElementById("register_form").reset();
+                }
+            }, error: function (data) {
+                console.log(data.responseText);
+            }
+        });
+
+
+    }
+    function LoginCustomer() {
+
+        var formData = new FormData(document.getElementById("login_form"));
+        var formValid = document.getElementById("login_form").getElementsByTagName("input");
+        var message = "";
+        for (var i = 0; i < formValid.length; i++) {
+            if (formValid[i].value == "") {
+                message = formValid[i].textContent + 'Giriş Formunda Boş Alanlar var!';
+            }
+            if (message) {
+                alert(message);
+                return false;
+            }
+        }
+        $.ajax({
+            type: "POST",
+            url: "../Login/Index",
+            data: formData,
+            async: true,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data.state) {
+                     window.location.href = '@Url.Action("Index", "Home")'
+                }
+                else {
+                    alert("Başarısız Giriş", data.message);
+                    document.getElementById("login_form").reset();
+                }
+            }, error: function (data) {
+                console.log(data.responseText);
+            }
+        });
+    }
+</script>		

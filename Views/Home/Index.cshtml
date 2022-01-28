@@ -1,0 +1,231 @@
+﻿@model IEnumerable<eticaret.DbModels.Book>
+@{
+    ViewBag.Title = "GoDpu";
+
+}
+@{
+    var categoryDal = new eticaret.DbConfigurations.EfCategoryDal();
+    var categories = categoryDal.GetList();
+}
+
+
+
+@* Slider *@
+<section class="homepage-slider" id="home-slider">
+    <div class="flexslider">
+        <ul class="slides" style="width: 300px; height: 480px; margin-left:430px;">
+            <li>
+                <img src="~/Content/images/bookImages/agathanınanahtarı.jpg"/>
+            </li>
+            <li>
+                <img src="~/Content/images/bookImages/benkirke.jpg" />
+                <div class="intro">
+                    <h1>Kitap Sezonu Geldi!</h1>
+                    <p><span>Muhteşem Yaz İndirimi</span></p>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/images/bookImages/beyazdis.jpg" />
+            </li>
+            <li>
+                <img src="~/Content/images/bookImages/biridammahkumununsongunu.jpg" />
+            </li>
+            <li>
+                <img src="~/Content/images/bookImages/haysiyet.jpg" />
+            </li>
+            <li>
+                <img src="~/Content/images/bookImages/herumutortakarar.jpg" />
+            </li>
+            <li>
+                <img src="~/Content/images/bookImages/nutuk.jpg" />
+            </li>
+        </ul>
+    </div>
+</section>
+@* Slider *@
+<section class="main-content">
+    <div class="row">
+        <div class="span12">
+            <div class="row">
+                <div class="span12">
+                    <h4 class="title">
+                        <span class="pull-left"><span class="text"><span class="line">Yeni <strong>Ürünler</strong></span></span></span>
+                        <span class="pull-right">
+                            <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+                        </span>
+                    </h4>
+                    <div id="myCarousel" class="myCarousel carousel slide">
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <ul class="thumbnails">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/haysiyet.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Haysiyet - Ece Üner</a><br />
+                                            <a href="products.html" class="category">Siyaset</a>
+                                            <p class="price">34₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/balikciveoglu.png" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Balıkçı Ve Oğlu - Zülfü Livaneli</a><br />
+                                            <a href="products.html" class="category">Roman</a>
+                                            <p class="price">19.60₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/martineden.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Martin Eden - Jack London</a><br />
+                                            <a href="products.html" class="category">Roman</a>
+                                            <p class="price">25₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/meleklerveseytanlar.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Melekler Ve Şeytanlar - Dan Brown</a><br />
+                                            <a href="products.html" class="category">Macera</a>
+                                            <p class="price">57₺</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <ul class="thumbnails">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/kayiptanrilarülkesi.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Kayıp Tanrılar Ülkesi - Ahmet Ümit</a><br />
+                                            <a href="products.html" class="category">Polisiye</a>
+                                            <p class="price">42₺</p>
+
+                                        </div>
+                                    </li>
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="span12">
+                    <h4 class="title">
+                        <span class="pull-left"><span class="text"><span class="line">Son <strong>Ürünler</strong></span></span></span>
+                        <span class="pull-right">
+                            <a class="left button" href="#myCarousel-2" data-slide="prev"></a><a class="right button" href="#myCarousel-2" data-slide="next"></a>
+                        </span>
+                    </h4>
+                    <div id="myCarousel-2" class="myCarousel carousel slide">
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <ul class="thumbnails">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/vedaglaryankılandı.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Ve Dağlar Yankılandı - Khaled Hosseini</a><br />
+                                            <a href="products.html" class="category">Roman</a>
+                                            <p class="price">42₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/othello.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Othello - William Shakespeare</a><br />
+                                            <a href="products.html" class="category">Dünya Klasikleri</a>
+                                            <p class="price">13₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/sineklerintanrisi.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Sineklerin Tanrısı - William Golding</a><br />
+                                            <a href="products.html" class="category">Roman</a>
+                                            <p class="price">12₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/ucurtmaavcisi.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Uçurtma Avcısı - Khaled Hosseini</a><br />
+                                            <a href="products.html" class="category">Roman</a>
+                                            <p class="price">42₺</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <ul class="thumbnails">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/insanneyleyasar.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">İnsan Neyle Yaşar - Lev Nikolayeviç Tolstoy</a><br />
+                                            <a href="products.html" class="category">Dünya Klasikleri</a>
+                                            <p class="price">10₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/yanlıslıklarkomedyası.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Yanlışlıklar Komedyası - William Shakespeare</a><br />
+                                            <a href="products.html" class="category">Dünya Klasikleri</a>
+                                            <p class="price">10₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/hayvanmezarlıgı.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Hayvan Mezarlığı - Stephen King</a><br />
+                                            <a href="products.html" class="category">Korku</a>
+                                            <p class="price">46₺</p>
+                                        </div>
+                                    </li>
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <p><a href="product_detail.html"><img src="~/Content/images/bookImages/meleklerveseytanlar.jpg" alt="" /></a></p>
+                                            <a href="product_detail.html" class="title">Melekler Ve Şeytanlar - Dan Brown</a><br />
+                                            <a href="products.html" class="category">Macera</a>
+                                            <p class="price">57₺</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<section class="our_client">
+    <h4 class="title"><span class="text">Manufactures</span></h4>
+    <div class="row">
+        <div class="span2">
+            <a href="#"><img alt="" src="themes/images/clients/14.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="themes/images/clients/35.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="themes/images/clients/1.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="themes/images/clients/2.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="themes/images/clients/3.png"></a>
+        </div>
+        <div class="span2">
+            <a href="#"><img alt="" src="themes/images/clients/4.png"></a>
+        </div>
+    </div>
+</section>
+
